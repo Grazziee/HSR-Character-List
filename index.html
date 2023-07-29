@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="image/x-icon"
+        href="https://cdn.now.gg/apps-content/com.HoYoverse.hkrpgoversea/icon/honkai-star-rail.png">
+    <title>HSR Characters</title>
+
+    <style>
+        body {
+            background-image: url(https://i.redd.it/zf4z6utfezua1.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            border: 0;
+            margin: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 6%;
+            margin-top: 2%;
+            margin-bottom: 1%;
+        }
+
+        h1 {
+            display: flex;
+            color: rgb(255, 255, 255);
+            justify-content: center;
+            text-align: center;
+            font-size: 3em;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            -webkit-animation: glow 1.5s ease-in-out infinite alternate;
+            -moz-animation: glow 1.5s ease-in-out infinite alternate;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @-webkit-keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #2d89f1, 0 0 40px #3f6ff1, 0 0 50px #201ebe, 0 0 60px #0e1ca0, 0 0 70px #2624b9;
+            }
+
+            to {
+                text-shadow: 0 0 20px #fff, 0 0 30px #bd5cfd, 0 0 40px #b530dd, 0 0 50px #791caf, 0 0 60px #7d0ea8;
+            }
+        }
+
+        p {
+            display: flex;
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 1em;
+            font-style: italic;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card {
+            display: flex;
+            background-color: rgba(42, 35, 75, 0.5);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            max-height: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .card {
+            transition: 0.3s ease transform;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 10px rgb(212, 38, 255);
+        }
+
+        .picture-char {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .char-picture {
+            display: flex;
+            width: 320px;
+            height: 360px;
+        }
+
+        .picture {
+            width: 22px;
+            height: 22px
+        }
+
+        .char-info {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        h2 {
+            display: flex;
+            color: white;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            display: flex;
+            margin-top: 0%;
+            color: rgb(157, 95, 255);
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .path-box {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h4 {
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .element {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h5 {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        h6 {
+            display: flex;
+            color: rgb(255, 206, 46);
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .row {
+            color: white;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #330f86;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ffe2a4;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #240b7c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="header">
+            <h1>Honkai: Star Rail Characters List</h1>
+            <p>May this journey lead us starward.</p>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1008.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>ARLAN</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_destruction.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Destruction</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_lightning.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Lightning</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1009.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>ASTA</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_harmony.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Harmony</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_fire.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Fire</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1211.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>BAILU</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_abundance.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Abundance</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_lightning.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Lightning</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1101.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>BRONYA</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_harmony.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Harmony</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_wind.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Wind</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1107.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>CLARA</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_destruction.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Destruction</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_physical.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Physical</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1002.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>DAN HENG</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_hunt.png" width="20px" id="path"
+                                class="picture">
+                            <h4>The Hunt</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_wind.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Wind</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1104.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>GEPARD</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_preservation.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Preservation</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_ice.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Ice</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1013.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>HERTA</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_erudition.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Erudition</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_ice.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Ice</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1003.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>HIMEKO</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_erudition.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Erudition</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_fire.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Fire</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1109.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>HOOK</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_destruction.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Destruction</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_fire.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Fire</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1204.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>JING YUAN</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_erudition.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Erudition</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_lightning.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Lightning</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1001.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>MARCH 7TH</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_preservation.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Preservation</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_ice.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Ice</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1105.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>NATASHA</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_abundance.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Abundance</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_physical.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Physical</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1106.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>PELA</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_nihility.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Nihility</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_ice.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Ice</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1201.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>QINGQUE</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_erudition.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Erudition</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_quantum.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Quantum</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1108.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>SAMPO</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_nihility.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Nihility</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_wind.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Wind</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1102.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>SEELE</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_hunt.png" width="20px" id="path"
+                                class="picture">
+                            <h4>The Hunt</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_quantum.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Quantum</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1103.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>SERVAL</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_erudition.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Erudition</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_lightning.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Lightning</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1206.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>SUSHANG</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_hunt.png" width="20px" id="path"
+                                class="picture">
+                            <h4>The Hunt</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_physical.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Physical</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1202.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>TINGYUN</h2>
+                        <h3>✦ ✦ ✦ ✦</h3>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_harmony.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Harmony</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_lightning.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Lightning</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/8001.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>TRAILBLAZER</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_destruction.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Destruction</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_physical.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Physical</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/8003.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>TRAILBLAZER</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_preservation.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Preservation</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_fire.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Fire</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1004.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>WELT</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_nihility.png" width="20px"
+                                id="path" class="picture">
+                            <h4>The Nihility</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_imaginary.png" width="20px"
+                                id="path" class="picture">
+                            <h5>Imaginary</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                <div class="card">
+                    <div class="picture-char">
+                        <img src="https://rerollcdn.com/STARRAIL/Characters/Full/1209.png" id="char-picture"
+                            class="char-picture">
+                    </div>
+                    <div class="char-info">
+                        <h2>YANQING</h2>
+                        <h6>✦ ✦ ✦ ✦ ✦</h6>
+                        <div class="path-box">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/path_the_hunt.png" width="20px" id="path"
+                                class="picture">
+                            <h4>The Hunt</h4>
+                        </div>
+                        <div class="element">
+                            <img src="https://rerollcdn.com/STARRAIL/Filters/element_ice.png" width="20px" id="path"
+                                class="picture">
+                            <h5>Ice</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="logo">
+            <a href="https://hsr.hoyoverse.com/en-us/">
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/b1/Honkai-Star-Rail.png" width="180px">
+            </a>
+            <p>Copyright © 2023 Hoyoverse. All rights reserved.</p>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
